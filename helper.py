@@ -1,5 +1,5 @@
-def fast(x,e,m):
-    X=x
+def fast(x, e, m):
+    X = x
     E = e
     Y = 1
     while E > 0:
@@ -9,7 +9,7 @@ def fast(x,e,m):
         else:
             Y = (X * Y) % m
             E = E-1
-            return Y
+    return Y
 
 def egcd(a, b):
     if a == 0:
@@ -19,6 +19,7 @@ def egcd(a, b):
         return (g, x - (b // a) * y, y)
 
 def modinv(a, m):
+    """ Returns modular multiplicative inverse """
     g, x, y = egcd(a, m)
     if g != 1:
         raise Exception('modular inverse does not exist')
