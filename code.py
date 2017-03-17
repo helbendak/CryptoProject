@@ -45,6 +45,7 @@ def text1_toArray(text1):
         text1_array.append(char)
     return text1_array
 
+
 def encode(final_list, n, e):
     encoded = []
     for letter in final_list:
@@ -54,9 +55,8 @@ def encode(final_list, n, e):
         encoded.append(encoded_numbers)
     return encoded
 
-
 if __name__ == '__main__':
-    p , q, e, text1, text2 = read_file("code.param.txt")
+    p, q, e, text1, text2 = read_file("code.param.txt")
     text2_array = text2_toArray(text2)
     text1_array = text1_toArray(text1)
     final_list = []
