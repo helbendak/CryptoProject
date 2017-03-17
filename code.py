@@ -33,13 +33,6 @@ def text2_toArray(text2):
             line_array.append(char)
         text2_array.append(line_array)
     return text2_array
-    #with open(text2) as f:
-    #  while True:
-    #    char = f.read(1)
-    #    if not char:
-    #      break
-    #    text2_array.append(char)
-    #return text2_array
 
 def text1_toArray(text1):
     text1_array = []
@@ -53,11 +46,8 @@ def text1_toArray(text1):
 
 if __name__ == '__main__':
     p , q, e, text1, text2 = read_file("code.param.txt")
-    #print p,q,e,text1,text2
     text2_array = text2_toArray(text2)
     text1_array = text1_toArray(text1)
-    #print text1_array
-    #print text2_array[16][37]
     final_list = []
     for char in text1_array:
         temp_array = []
