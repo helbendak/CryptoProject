@@ -17,13 +17,21 @@ def read_file(decode_param):
     text2 = main_list[2][0]
     return p, q, e, text1, text2
 
+def text1_toArray(text1):
+    text1_array = []
+    with open(text1) as f:
+        data = f.readlines()
+    for line in data:
+        numbers = map(int, line.split())
+        text1_array.append(numbers)
+    return text1_array
+
 
 if __name__ == '__main__':
     p, q, e, text1, text2 = read_file("decode.param.txt")
     print p, q, e, text1, text2
-    array_to_decode = []
-
-    #TODO: read out_code
+    
+    array_to_decode = text1_toArray(text1)
 
     n = p*q
     phi = (p-1)*(q-1)
