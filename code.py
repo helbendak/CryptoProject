@@ -19,16 +19,30 @@ def read_file(code_param):
     return p, q, e, text1, text2
 
 def text2_toArray(text2):
+    """
+    Converts contents of text2 into an array that has each character of the text file as an element
+    """
     text2_array = []
-    with open(text2) as f:
-      while True:
-        char = f.read(1)
-        if not char:
-          break
-        text2_array.append(char)
+    with open(text2, "r") as f:
+        data = f.readlines()
+
+    for line in data:
+        line_array = []
+        for char in line:
+            line_array.append(char)
+        text2_array.append(line_array)
     return text2_array
 
+
+    #with open(text2) as f:
+    #  while True:
+    #    char = f.read(1)
+    #    if not char:
+    #      break
+    #    text2_array.append(char)
+    #return text2_array
+
 if __name__ == '__main__':
-    p ,q ,e ,text1 ,text2 = read_file("code.param.txt")
+    p , q, e, text1, text2 = read_file("code.param.txt")
     text2_array = text2_toArray(text2)
     print text2_array
