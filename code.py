@@ -71,12 +71,15 @@ if __name__ == '__main__':
         if length != 0: # Sanity check
             rand = random.randint(0, length - 1)
             final_list.append(temp_array[rand])
-    print final_list
+    #print final_list
 
-    print ("\n\n")
+    #print ("\n\n")
 
     #RSA encoding
     n = p*q
-    print "n = %d" % n
-    print "e = %d" % e
-    print encode(final_list, n, e)
+    #print "n = %d" % n
+    #print "e = %d" % e
+    encoded = encode(final_list, n, e)
+    file = open("code.out.txt", "w")
+    file.write(str(encoded))
+    file.close()
