@@ -1,4 +1,5 @@
 import random
+import helper
 
 def read_file(code_param):
     with open(code_param, "r") as f:  # Opens code.param file and stores its text into data variable
@@ -44,6 +45,16 @@ def text1_toArray(text1):
         text1_array.append(char)
     return text1_array
 
+def encode(final_list, n, e):
+    encoded = []
+    for letter in final_list:
+        encoded_numbers = []
+        for number in letter:
+            encoded_numbers.append(helper.fast(number, e, n))
+        encoded.append(encoded_numbers)
+    return encoded
+
+
 if __name__ == '__main__':
     p , q, e, text1, text2 = read_file("code.param.txt")
     text2_array = text2_toArray(text2)
@@ -61,3 +72,11 @@ if __name__ == '__main__':
             rand = random.randint(0, length - 1)
             final_list.append(temp_array[rand])
     print final_list
+
+    print ("\n\n")
+
+    #RSA encoding
+    n = p*q
+    print "n = %d" % n
+    print "e = %d" % e
+    print encode(final_list, n, e)
