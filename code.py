@@ -76,7 +76,7 @@ if __name__ == '__main__':
         if length != 0: # Sanity check
             rand = random.randint(0, length - 1)
             final_list.append(temp_array[rand])
-    print final_list
+    #print final_list
 
     #print ("\n\n")
 

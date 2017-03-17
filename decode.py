@@ -26,13 +26,59 @@ def text1_toArray(text1):
         text1_array.append(numbers)
     return text1_array
 
+def text2_toArray(text2):
+    """
+    Converts contents of text2 into an array that has each character of the text file as an element
+    """
+    # TODO: Rewrite this comment properly
+    text2_array = []
+    with open(text2, "r") as f:
+        data = f.readlines()
+
+    for line in data:
+        line_array = []
+        for char in line:
+            line_array.append(char)
+        text2_array.append(line_array)
+    return text2_array
+
+
+def decode(encoded_list, n, d):
+    decoded_array = []
+
+    for letter in encoded_list:
+
+        decoded_number_pair = []
+        for number in letter:
+            decoded_number_pair.append(helper.fast(number, d, n))
+        decoded_array.append(decoded_number_pair)
+    return decoded_array
+
 
 if __name__ == '__main__':
     p, q, e, text1, text2 = read_file("decode.param.txt")
-    print p, q, e, text1, text2
-    
-    array_to_decode = text1_toArray(text1)
+
+
+    #TODO: read out_code
 
     n = p*q
     phi = (p-1)*(q-1)
     d = helper.modinv(e, phi)
+    encoded_list = text1_toArray(text1)
+
+    decoded_array = decode(encoded_list, n, d)
+    print decoded_array
+
+    file = open("decoded.txt","w")
+    text2array = text2_toArray(text2)
+
+    print(len(text2array))
+
+    print(decoded_array)
+    for i in range(0, len(decoded_array) ):
+        for j in range(0, len(decoded_array[i]) - 1):
+
+            char = text2array[decoded_array[i][j]][decoded_array[i][j+1]]
+            print char
+            file.write(char)
+    file.close()
