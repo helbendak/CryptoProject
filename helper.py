@@ -1,6 +1,5 @@
 def fast(x, e, m): # function for fast computation of Y = x**e % m
     X = x
-    X = x
     E = e
     Y = 1
     while E > 0:
