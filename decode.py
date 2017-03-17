@@ -1,3 +1,4 @@
+import helper
 def read_file(decode_param):
     with open(decode_param, "r") as f:  # Opens code.param file and stores its text into data variable
         data = f.readlines()
@@ -20,3 +21,9 @@ def read_file(decode_param):
 if __name__ == '__main__':
     p, q, e, text1, text2 = read_file("decode.param.txt")
     print p, q, e, text1, text2
+
+    #TODO: read out_code
+
+    n = p*q
+    phi = (p-1)*(q-1)
+    d = helper.modinv(e, phi)
