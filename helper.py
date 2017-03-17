@@ -12,16 +12,26 @@ def fast(x, e, m):
     return Y
 
 def egcd(a, b):
+    """
+    Euclid's greatest common divisor
+    """
     if a == 0:
         return (b, 0, 1)
     else:
         g, y, x = egcd(b % a, a)
         return (g, x - (b // a) * y, y)
 
-def modinv(a, m):
-    """ Returns modular multiplicative inverse """
-    g, x, y = egcd(a, m)
+def modinv(e, phi):
+    """
+    Returns modular multiplicative inverse d such that
+    d = e^-1 mod( phi(n) )
+     """
+    g, x, y = egcd(e, phi)
     if g != 1:
         raise Exception('modular inverse does not exist')
     else:
-        return x % m
+        return x % phi
+
+
+print modinv(7,40)
+print fast(55,7,23)
