@@ -31,7 +31,3 @@ def modinv(e, phi):
         raise Exception('modular inverse does not exist')
     else:
         return x % phi
-
-
-print modinv(7,40)
-print fast(55,7,23)
