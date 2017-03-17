@@ -75,7 +75,7 @@ if __name__ == '__main__':
 
     #print ("\n\n")
 
-    #RSA encoding
+    # RSA encoding
     n = p*q
     #print "n = %d" % n
     #print "e = %d" % e
