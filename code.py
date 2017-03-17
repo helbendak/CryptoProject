@@ -1,3 +1,5 @@
+import random
+
 def read_file(code_param):
     with open(code_param, "r") as f:  # Opens code.param file and stores its text into data variable
         data = f.readlines()
@@ -51,8 +53,21 @@ def text1_toArray(text1):
 
 if __name__ == '__main__':
     p , q, e, text1, text2 = read_file("code.param.txt")
-    print p,q,e,text1,text2
+    #print p,q,e,text1,text2
     text2_array = text2_toArray(text2)
     text1_array = text1_toArray(text1)
-    print text1_array
-    print text2_array[16][37]
+    #print text1_array
+    #print text2_array[16][37]
+    final_list = []
+    for char in text1_array:
+        temp_array = []
+        for i in range(0, len(text2_array) - 1):
+            for j in range(0, len(text2_array[i]) - 1):
+                if char == text2_array[i][j]:
+                    temp_array.append([i,j])
+                    #print "Character: " + char + " FOUND " + "[" + str(i) + "]" + "[" + str(j) + "]"
+        length = len(temp_array)
+        if length != 0: # Sanity check
+            rand = random.randint(0, length - 1)
+            final_list.append(temp_array[rand])
+    print final_list
