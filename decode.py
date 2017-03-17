@@ -1,9 +1,9 @@
 def read_file(decode_param):
-    with open(decode_param, "r") as f:  # Opens code.param file and stores its text into data variable
+    with open(decode_param, "r") as f:  # Opens decode.param file and stores its text into data variable
         data = f.readlines()
 
     main_list = []
-    for line in data:  # Splits the code.param file line by line and appends each line into main_list array
+    for line in data:  # Splits the decode.param file line by line and appends each line into main_list array
         words = line.split()
         main_list.append(words)
 
@@ -20,3 +20,4 @@ def read_file(decode_param):
 if __name__ == '__main__':
     p, q, e, text1, text2 = read_file("decode.param.txt")
     print p, q, e, text1, text2
+    array_to_decode = []

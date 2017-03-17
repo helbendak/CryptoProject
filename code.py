@@ -47,13 +47,18 @@ def text1_toArray(text1):
 
 
 def encode(final_list, n, e):
-    encoded = []
+    #encoded = []
+    file = open("out_code.txt", "w")
     for letter in final_list:
-        encoded_numbers = []
+        #encoded_numbers = []
         for number in letter:
-            encoded_numbers.append(helper.fast(number, e, n))
-        encoded.append(encoded_numbers)
-    return encoded
+        #    encoded_numbers.append(helper.fast(number, e, n))
+            file.write(' ')
+            file.write(str(helper.fast(number, e, n)))
+        #encoded.append(encoded_numbers)
+        file.write('\n')
+    file.close()
+    #return encoded
 
 if __name__ == '__main__':
     p, q, e, text1, text2 = read_file("code.param.txt")
@@ -71,7 +76,7 @@ if __name__ == '__main__':
         if length != 0: # Sanity check
             rand = random.randint(0, length - 1)
             final_list.append(temp_array[rand])
-    #print final_list
+    print final_list
 
     #print ("\n\n")
 
@@ -79,7 +84,9 @@ if __name__ == '__main__':
     n = p*q
     #print "n = %d" % n
     #print "e = %d" % e
+    #encoded = encode(final_list, n, e)
+    #file = open("out_code.txt", "w")
+    #file.write(str(encoded))
+    #file.close()
     encoded = encode(final_list, n, e)
-    file = open("out_code.txt", "w")
-    file.write(str(encoded))
-    file.close()
+    #print encoded
