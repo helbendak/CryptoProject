@@ -1,5 +1,5 @@
-def read_file():
-    with open("code.param.txt", "r") as f:  # Opens code.param file and stores its text into data variable
+def read_file(code_param):
+    with open(code_param, "r") as f:  # Opens code.param file and stores its text into data variable
         data = f.readlines()
 
     main_list = []
@@ -16,8 +16,19 @@ def read_file():
     text1 = text1[0]
     text2 = main_list[2]
     text2 = text2[0]
-    print p, q, e
-    print text1
-    print text2
     return p, q, e, text1, text2
 
+def text2_toArray(text2):
+    text2_array = []
+    with open(text2) as f:
+      while True:
+        char = f.read(1)
+        if not char:
+          break
+        text2_array.append(char)
+    return text2_array
+
+if __name__ == '__main__':
+    p ,q ,e ,text1 ,text2 = read_file("code.param.txt")
+    text2_array = text2_toArray(text2)
+    print text2_array
