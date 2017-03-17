@@ -43,6 +43,8 @@ def text1_toArray(text1):
         if not char:
           break
         text1_array.append(char)
+    print text1_array
+    print len(text1_array)
     return text1_array
 
 
@@ -67,15 +69,18 @@ if __name__ == '__main__':
     final_list = []
     for char in text1_array:
         temp_array = []
-        for i in range(0, len(text2_array) - 1):
-            for j in range(0, len(text2_array[i]) - 1):
+        for i in range(0, len(text2_array) ):
+            for j in range(0, len(text2_array[i]) ):
                 if char == text2_array[i][j]:
+
                     temp_array.append([i,j])
                     #print "Character: " + char + " FOUND " + "[" + str(i) + "]" + "[" + str(j) + "]"
         length = len(temp_array)
+
         if length != 0: # Sanity check
             rand = random.randint(0, length - 1)
             final_list.append(temp_array[rand])
+    print len(final_list)
     #print final_list
 
     #print ("\n\n")
