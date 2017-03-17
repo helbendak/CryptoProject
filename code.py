@@ -80,6 +80,6 @@ if __name__ == '__main__':
     #print "n = %d" % n
     #print "e = %d" % e
     encoded = encode(final_list, n, e)
-    file = open("code.out.txt", "w")
+    file = open("out_code.txt", "w")
     file.write(str(encoded))
     file.close()
