@@ -1,3 +1,3 @@
 61 53 17
-out_code.txt
+code.out.txt
 KublaKhan.txt

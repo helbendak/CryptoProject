@@ -50,7 +50,7 @@ def text1_toArray(text1):
 
 def encode(final_list, n, e):
     #encoded = []
-    file = open("out_code.txt", "w")
+    file = open("code.out.txt", "w")
     for letter in final_list:
         #encoded_numbers = []
         for number in letter:
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     #print "n = %d" % n
     #print "e = %d" % e
     #encoded = encode(final_list, n, e)
-    #file = open("out_code.txt", "w")
+    #file = open("code.out.txt", "w")
     #file.write(str(encoded))
     #file.close()
     encoded = encode(final_list, n, e)
