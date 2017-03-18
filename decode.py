@@ -19,7 +19,11 @@ def read_file(decode_param):
     return p, q, e, text1, text2
 
 def text1_toArray(text1):
-    # TODO: Explain how this function works
+    """
+    Converts content of text2 (code.out) into a 2D array of integers,
+    each sub-array represents a line of text2 and
+    the elements of the sub-arrays represent the elements of text2 of such line
+    """
     text1_array = []
     with open(text1) as f:
         data = f.readlines()
@@ -45,7 +49,11 @@ def text2_toArray(text2):
     return text2_array
 
 def decode(encoded_list, n, d):
-    # TODO: Write comment explaining what this function does
+    """
+    Takes every element of the array and decode using the computation c**d % n,
+    then append them into an array of the form:
+    [ [characters of line1], [characters of line2], ... ]
+    """
     decoded_array = []
     for letter in encoded_list:
         decoded_number_pair = []
@@ -55,14 +63,17 @@ def decode(encoded_list, n, d):
     return decoded_array
 
 if __name__ == '__main__':
-    # TODO: Explain what the following code does (the mathematical calculations)
     p, q, e, text1, text2 = read_file("decode.param.txt")
+    # Computation of the variables for RSA algorithm's implementation
     n = p*q
     phi = (p-1)*(q-1)
     d = helper.modinv(e, phi)
+
     encoded_list = text1_toArray(text1)
     decoded_array = decode(encoded_list, n, d)
-    file = open("decoded.txt","w") # Specifies the output file
+
+    # Converting the decoded array into a plain text file, using auxiliary text text2
+    file = open("decoded.txt","w")
     text2array = text2_toArray(text2)
     for i in range(0, len(decoded_array) ):
         # Finds the character in text2 corresponding to each 'coordinate' and writes the character to the output file
