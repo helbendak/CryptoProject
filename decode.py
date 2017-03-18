@@ -68,7 +68,6 @@ if __name__ == '__main__':
     n = p*q
     phi = (p-1)*(q-1)
     d = helper.modinv(e, phi)
-
     encoded_list = text1_toArray(text1)
     decoded_array = decode(encoded_list, n, d)
 
