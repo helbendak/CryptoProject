@@ -55,7 +55,7 @@ def encode(final_list, n, e):
     Takes a 2D array of 'coordinates' and encodes each number using the 'fast' function provided
     Writes the encoded numbers to the output file
     """
-    file = open("code.out.txt", "w")
+    file = open("code.out.txt", "w") # Specifies the output file
     for letter in final_list:
         for number in letter:
             file.write(' ')

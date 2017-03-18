@@ -62,7 +62,7 @@ if __name__ == '__main__':
     d = helper.modinv(e, phi)
     encoded_list = text1_toArray(text1)
     decoded_array = decode(encoded_list, n, d)
-    file = open("decoded.txt","w")
+    file = open("decoded.txt","w") # Specifies the output file
     text2array = text2_toArray(text2)
     for i in range(0, len(decoded_array) ):
         # Finds the character in text2 corresponding to each 'coordinate' and writes the character to the output file
